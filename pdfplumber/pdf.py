@@ -7,7 +7,6 @@ from typing import Any, Dict, List, Literal, Optional, Tuple, Type, Union
 
 from playa.exceptions import PDFNoStructTree, PSException
 from playa.pdfdocument import PDFDocument
-from playa.pdfinterp import PDFResourceManager
 from playa.pdfstructtree import PDFStructTree
 
 from ._typing import T_num, T_obj_list
@@ -41,7 +40,6 @@ class PDF(Container):
         self.unicode_norm = unicode_norm
 
         self.doc = PDFDocument(stream, password=password or "")
-        self.rsrcmgr = PDFResourceManager()
         self.metadata = {}
 
         for info in self.doc.info:
